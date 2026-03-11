@@ -1,0 +1,4 @@
+-keep class androidx.benchmark.** { *; }
+-dontwarn androidx.benchmark.**
+-keepattributes SourceFile,LineNumberTable
+-keep class com.xtremeiptv.** { *; }
