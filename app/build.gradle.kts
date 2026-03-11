@@ -159,4 +159,49 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    android {
+    // ... existing configuration ...
+    
+    defaultConfig {
+        // ... existing configuration ...
+        
+        // Read from environment or gradle.properties
+        val admobAppId = providers.gradleProperty("ADMOB_APP_ID")
+            .orElse(providers.environmentVariable("ADMOB_APP_ID"))
+            .orElse("ca-app-pub-3940256099942544~3347511713")
+            .get()
+        
+        buildConfigField("String", "ADMOB_APP_ID", "\"$admobAppId\"")
+        
+        val castAppId = providers.gradleProperty("CAST_APP_ID")
+            .orElse(providers.environmentVariable("CAST_APP_ID"))
+            .orElse("YOUR_CAST_APP_ID")
+            .get()
+        
+        buildConfigField("String", "CAST_APP_ID", "\"$castAppId\"")
+        
+        buildConfigField("boolean", "ENABLE_ANALYTICS", 
+            providers.gradleProperty("ENABLE_ANALYTICS")
+                .orElse(providers.environmentVariable("ENABLE_ANALYTICS"))
+                .orElse("true").get())
+        
+        buildConfigField("boolean", "ENABLE_CRASH_REPORTING",
+            providers.gradleProperty("ENABLE_CRASH_REPORTING")
+                .orElse(providers.environmentVariable("ENABLE_CRASH_REPORTING"))
+                .orElse("true").get())
+        
+        buildConfigField("boolean", "ENABLE_ADS",
+            providers.gradleProperty("ENABLE_ADS")
+                .orElse(providers.environmentVariable("ENABLE_ADS"))
+                .orElse("true").get())
+    }
+    
+    buildTypes {
+        debug {
+            buildConfigField("boolean", "ENABLE_ANALYTICS", "false")
+            buildConfigField("boolean", "ENABLE_CRASH_REPORTING", "false")
+        }
+    }
+}
 }
