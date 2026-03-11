@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tv generator-info-name="XMLTV">
+  <channel id="bbc1">
+    <display-name>BBC One</display-name>
+    <icon src="https://example.com/bbc1.png" />
+  </channel>
+  <channel id="bbc2">
+    <display-name>BBC Two</display-name>
+    <icon src="https://example.com/bbc2.png" />
+  </channel>
+  <programme channel="bbc1" start="20240101000000 +0000" stop="20240101010000 +0000">
+    <title lang="en">News at Ten</title>
+    <desc lang="en">The latest news and weather.</desc>
+    <category lang="en">News</category>
+  </programme>
+  <programme channel="bbc1" start="20240101010000 +0000" stop="20240101020000 +0000">
+    <title lang="en">Late Night Show</title>
+    <desc lang="en">Entertainment and comedy.</desc>
+    <category lang="en">Entertainment</category>
+  </programme>
+</tv>
