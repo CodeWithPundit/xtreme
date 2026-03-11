@@ -6,12 +6,18 @@
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" 
+        android:maxSdkVersion="28" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     
     <!-- For Android TV -->
     <uses-feature
@@ -35,6 +41,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XtremeIPTV"
         android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
         tools:targetApi="31">
         
         <!-- Main Activity -->
@@ -42,7 +50,11 @@
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.XtremeIPTV">
+            
+            <!-- Launcher -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -53,6 +65,14 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
+            
+            <!-- Deep links -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="xtremeiptv" android:host="play" />
+            </intent-filter>
         </activity>
         
         <!-- Player Activity -->
@@ -60,7 +80,9 @@
             android:name=".feature.player.PlayerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:exported="false"
-            android:theme="@style/Theme.XtremeIPTV.Player" />
+            android:theme="@style/Theme.XtremeIPTV.Player"
+            android:supportsPictureInPicture="true"
+            android:resizeableActivity="true" />
         
         <!-- EPG Activity -->
         <activity
@@ -68,16 +90,47 @@
             android:exported="false"
             android:theme="@style/Theme.XtremeIPTV" />
         
+        <!-- Settings Activity -->
+        <activity
+            android:name=".feature.settings.SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XtremeIPTV" />
+        
+        <!-- Expanded Controls for Cast -->
+        <activity
+            android:name=".feature.cast.ExpandedControlsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.XtremeIPTV" />
+        
+        <!-- Download Service -->
+        <service
+            android:name="androidx.media3.exoplayer.offline.DownloadService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+        
         <!-- Recording Service -->
         <service
             android:name=".feature.recording.service.RecordingService"
             android:foregroundServiceType="mediaProjection"
             android:exported="false" />
         
-        <!-- Download Service -->
-        <service
-            android:name="androidx.media3.exoplayer.offline.DownloadService"
+        <!-- Sync Service (WorkManager) -->
+        <provider
+            android:name="androidx.work.impl.WorkManagerInitializer"
+            android:authorities="${applicationId}.workmanager-init"
+            android:enabled="false"
             android:exported="false" />
+        
+        <!-- File Provider -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
         
         <!-- Chromecast Receiver -->
         <meta-data
@@ -98,22 +151,12 @@
         <meta-data
             android:name="android.app.banner"
             android:resource="@drawable/tv_banner" />
-       <!-- Deep links for player -->
-<intent-filter>
-    <action android:name="android.intent.action.VIEW" />
-    <category android:name="android.intent.category.DEFAULT" />
-    <category android:name="android.intent.category.BROWSABLE" />
-    <data android:scheme="xtremeiptv" android:host="play" />
-    <data android:scheme="https" android:host="www.xtremeiptv.com" android:pathPattern="/play/.*" />
-</intent-filter>
-
-<!-- Deep links for profile -->
-<intent-filter>
-    <action android:name="android.intent.action.VIEW" />
-    <category android:name="android.intent.category.DEFAULT" />
-    <category android:name="android.intent.category.BROWSABLE" />
-    <data android:scheme="xtremeiptv" android:host="profile" />
-</intent-filter> 
+        
+        <!-- Searchable -->
+        <meta-data
+            android:name="android.app.searchable"
+            android:resource="@xml/deep_links" />
+        
     </application>
 
 </manifest>
