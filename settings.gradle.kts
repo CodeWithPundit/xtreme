@@ -18,8 +18,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "XtremeIPTV"
 
-// Include all modules
-include(":app")
+// Build logic
 include(":build-logic")
 
 // Core modules
@@ -52,5 +51,5 @@ include(":service:sync")
 include(":service:download")
 include(":service:recording")
 
-// Build logic
-include(":buildSrc")
+// App module
+include(":app")
