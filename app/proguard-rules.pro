@@ -104,4 +104,21 @@
 # Keep Javascript interfaces for WebView
 -keepclassmembers class * {
     @android.webkit.JavascriptInterface <methods>;
+# Firebase
+-keep class com.google.firebase.** { *; }
+-dontwarn com.google.firebase.**
+-keepattributes Signature
+-keepattributes *Annotation*
+
+# Firebase Crashlytics
+-keepattributes SourceFile,LineNumberTable
+-keep public class * extends java.lang.Exception
+
+# Firebase Performance
+-keep class com.google.firebase.perf.** { *; }
+-keep class com.google.firebase.remoteconfig.** { *; }
+
+# Firebase Analytics
+-keep class com.google.firebase.analytics.** { *; }
+-keep class com.google.android.gms.measurement.** { *; }    
 }
