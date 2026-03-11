@@ -1,0 +1,73 @@
+{
+  "project": {
+    "name": "Xtreme IPTV",
+    "modules": [
+      {
+        "name": "app",
+        "src": "app/src/main/java",
+        "testSrc": "app/src/test/java",
+        "androidTestSrc": "app/src/androidTest/java"
+      },
+      {
+        "name": "core:common",
+        "src": "core/common/src/main/java"
+      },
+      {
+        "name": "core:data",
+        "src": "core/data/src/main/java"
+      },
+      {
+        "name": "core:domain",
+        "src": "core/domain/src/main/java"
+      },
+      {
+        "name": "core:model",
+        "src": "core/model/src/main/java"
+      },
+      {
+        "name": "core:network",
+        "src": "core/network/src/main/java"
+      },
+      {
+        "name": "core:database",
+        "src": "core/database/src/main/java"
+      },
+      {
+        "name": "core:preferences",
+        "src": "core/preferences/src/main/java"
+      },
+      {
+        "name": "core:designsystem",
+        "src": "core/designsystem/src/main/java"
+      },
+      {
+        "name": "feature:auth",
+        "src": "feature/auth/src/main/java"
+      },
+      {
+        "name": "feature:home",
+        "src": "feature/home/src/main/java"
+      },
+      {
+        "name": "feature:player",
+        "src": "feature/player/src/main/java"
+      },
+      {
+        "name": "feature:epg",
+        "src": "feature/epg/src/main/java"
+      },
+      {
+        "name": "feature:download",
+        "src": "feature/download/src/main/java"
+      },
+      {
+        "name": "feature:recording",
+        "src": "feature/recording/src/main/java"
+      },
+      {
+        "name": "feature:settings",
+        "src": "feature/settings/src/main/java"
+      }
+    ]
+  }
+}
