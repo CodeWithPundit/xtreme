@@ -201,7 +201,28 @@ dependencies {
         debug {
             buildConfigField("boolean", "ENABLE_ANALYTICS", "false")
             buildConfigField("boolean", "ENABLE_CRASH_REPORTING", "false")
-        }
+        }plugins {
+    // ... existing plugins
+    id("io.gitlab.arturbosch.detekt") version "1.23.4"
+}
+
+detekt {
+    config = files("$rootDir/config/detekt/detekt.yml")
+    buildUponDefaultConfig = true
+    allRules = false
+    
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        txt.enabled = false
+        sarif.enabled = true
+        md.enabled = false
+    }
+}
+
+tasks.named("check").configure {
+    dependsOn("detekt")
+}
     }
 }
 }
