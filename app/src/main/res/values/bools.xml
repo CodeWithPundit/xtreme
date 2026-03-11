@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TV-specific configurations -->
+    <bool name="isTablet">false</bool>
+    <bool name="isTv">true</bool>
+    <bool name="isLeanback">true</bool>
+    
+    <!-- TV features -->
+    <bool name="supports_leanback">true</bool>
+    <bool name="supports_gamepad">true</bool>
+    <bool name="supports_remote">true</bool>
+</resources>
