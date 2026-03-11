@@ -2,9 +2,9 @@ package com.xtremeiptv.core.network.di
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.xtremeiptv.core.network.api.XtreamCodesApi
-import com.xtremeiptv.core.network.api.StalkerPortalApi
 import com.xtremeiptv.core.network.api.MacPortalApi
+import com.xtremeiptv.core.network.api.StalkerPortalApi
+import com.xtremeiptv.core.network.api.XtreamCodesApi
 import com.xtremeiptv.core.network.interceptor.AuthInterceptor
 import com.xtremeiptv.core.network.interceptor.LoggingInterceptor
 import dagger.Module
@@ -37,24 +37,29 @@ object NetworkModule {
         authInterceptor: AuthInterceptor,
         loggingInterceptor: LoggingInterceptor
     ): OkHttpClient {
+        val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+
         return OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
             .addInterceptor(authInterceptor)
             .addInterceptor(loggingInterceptor)
-            .addInterceptor(HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            })
+            .addInterceptor(httpLoggingInterceptor)
             .retryOnConnectionFailure(true)
             .build()
     }
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
+    fun provideRetrofit(
+        okHttpClient: OkHttpClient,
+        gson: Gson
+    ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://api.xtremeiptv.com/") // Placeholder, will be overridden per request
+            .baseUrl("https://api.xtremeiptv.com/") // Base URL, will be overridden per request
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
