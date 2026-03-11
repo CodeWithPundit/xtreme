@@ -1,0 +1,20 @@
+# Baseline Profile for Xtreme IPTV
+# This file improves startup performance by pre-compiling critical paths
+
+# Main Activity
+HSPLcom/xtremeiptv/MainActivity;->onCreate(Landroid/os/Bundle;)V
+HSPLcom/xtremeiptv/MainActivity;->onStart()V
+HSPLcom/xtremeiptv/MainActivity;->onResume()V
+
+# Home Screen
+HSPLcom/xtremeiptv/feature/home/HomeScreenKt;->HomeScreen(Landroidx/compose/runtime/Composer;I)V
+HSPLcom/xtremeiptv/feature/home/HomeScreenKt;->HeroBanner(Ljava/util/List;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)V
+HSPLcom/xtremeiptv/feature/home/HomeScreenKt;->ContentRow(Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
+
+# Player
+HSPLcom/xtremeiptv/feature/player/PlayerActivity;->onCreate(Landroid/os/Bundle;)V
+HSPLcom/xtremeiptv/feature/player/PlayerScreenKt;->PlayerScreen(Lcom/xtremeiptv/feature/player/PlayerViewModel;Lcom/xtremeiptv/feature/player/manager/PlayerManager;Ljava/lang/String;JLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;I)V
+
+# Common Composables
+HSPLandroidx/compose/material3/TextKt;->Text--4IGK_g(Ljava/lang/String;Landroidx/compose/ui/Modifier;JJLandroidx/compose/ui/text/font/FontStyle;Landroidx/compose/ui/text/font/FontWeight;Landroidx/compose/ui/text/font/FontFamily;JLandroidx/compose/ui/text/style/TextDecoration;Landroidx/compose/ui/text/style/TextAlign;JIZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/runtime/Composer;III)V
+HSPLandroidx/compose/material3/ButtonKt;->Button(Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLandroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/ButtonColors;Landroidx/compose/material3/ButtonElevation;Landroidx/compose/foundation/BorderStroke;Landroidx/compose/foundation/layout/PaddingValues;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
