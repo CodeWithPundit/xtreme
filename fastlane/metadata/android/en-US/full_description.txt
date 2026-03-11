@@ -1,0 +1,26 @@
+Xtreme IPTV is a premium IPTV player that supports multiple protocols including M3U, Xtream Codes, Stalker Portal, and MAC Portal. With a beautiful Netflix-style interface, you can enjoy your favorite content on any device - phone, tablet, or Android TV.
+
+KEY FEATURES:
+• Multi-protocol support: M3U, Xtream Codes, Stalker Portal, MAC Portal
+• Unlimited profiles with PIN protection
+• Media3 ExoPlayer with HLS, DASH, and MPEG-TS support
+• 7-day EPG with catchup playback
+• Download movies and series for offline viewing
+• Screen recording capability
+• Chromecast support
+• Picture-in-Picture mode
+• Gesture controls (volume, brightness, seek)
+• Premium UI with glass morphism effects
+• Network speed test
+• Background stream health check
+• Auto playlist refresh
+
+NO CONTENT PROVIDED:
+This is a pure IPTV player. You must provide your own credentials and content sources. We do not provide or bundle any content.
+
+REQUIREMENTS:
+• Android 7.0 or higher
+• Internet connection
+• Valid IPTV subscription credentials
+
+Download Xtreme IPTV now and transform your device into a powerful entertainment center!
