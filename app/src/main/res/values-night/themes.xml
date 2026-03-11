@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.XtremeIPTV" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/deep_abyss</item>
+        <item name="android:colorBackground">@color/deep_abyss</item>
+        <item name="android:textColor">@color/bone_white</item>
+        <item name="android:statusBarColor">@color/deep_abyss</item>
+        <item name="android:navigationBarColor">@color/deep_abyss</item>
+    </style>
+    
+    <style name="Theme.XtremeIPTV.Player" parent="Theme.XtremeIPTV">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+    </style>
+</resources>
