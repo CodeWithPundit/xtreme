@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TV-specific configurations -->
+    <bool name="isTablet">false</bool>
+    <bool name="isTv">false</bool>
+    
+    <!-- Feature flags -->
+    <bool name="enable_analytics">true</bool>
+    <bool name="enable_crash_reporting">true</bool>
+    <bool name="enable_ads">true</bool>
+    <bool name="enable_downloads">true</bool>
+    <bool name="enable_recordings">true</bool>
+    <bool name="enable_cast">true</bool>
+</resources>
