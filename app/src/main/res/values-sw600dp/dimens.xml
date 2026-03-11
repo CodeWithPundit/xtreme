@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tablet specific dimensions -->
+    <dimen name="hero_banner_height">400dp</dimen>
+    <dimen name="content_row_padding">32dp</dimen>
+    <dimen name="stream_card_width">240dp</dimen>
+    <dimen name="stream_card_height">140dp</dimen>
+    <dimen name="text_xs">12sp</dimen>
+    <dimen name="text_s">14sp</dimen>
+    <dimen name="text_m">16sp</dimen>
+    <dimen name="text_l">18sp</dimen>
+    <dimen name="text_xl">20sp</dimen>
+</resources>
