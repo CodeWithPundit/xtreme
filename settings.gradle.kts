@@ -12,10 +12,15 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url = uri("https://jitpack.io") }
+        maven { url = uri("https://maven.google.com") }
     }
 }
 
 rootProject.name = "XtremeIPTV"
+
+// Include all modules
+include(":app")
+include(":build-logic")
 
 // Core modules
 include(":core:common")
@@ -26,6 +31,7 @@ include(":core:network")
 include(":core:database")
 include(":core:preferences")
 include(":core:testing")
+include(":core:designsystem")
 
 // Feature modules
 include(":feature:auth")
@@ -38,11 +44,13 @@ include(":feature:player")
 include(":feature:download")
 include(":feature:recording")
 include(":feature:profile")
+include(":feature:settings")
+include(":feature:cast")
 
 // Service modules
 include(":service:sync")
 include(":service:download")
 include(":service:recording")
 
-// App module
-include(":app")
+// Build logic
+include(":buildSrc")
