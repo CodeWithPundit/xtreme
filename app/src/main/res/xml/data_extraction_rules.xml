@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- Exclude sensitive data from cloud backup -->
+        <exclude domain="database" path="."/>
+        <exclude domain="sharedpref" path="."/>
+        <exclude domain="file" path="downloads"/>
+        <exclude domain="file" path="recordings"/>
+        
+        <!-- Include only non-sensitive data -->
+        <include domain="file" path="."/>
+    </cloud-backup>
+    
+    <device-transfer>
+        <!-- Allow all data for device-to-device transfer -->
+        <include domain="database" path="."/>
+        <include domain="sharedpref" path="."/>
+        <include domain="file" path="."/>
+        <include domain="external" path="."/>
+    </device-transfer>
+</data-extraction-rules>
