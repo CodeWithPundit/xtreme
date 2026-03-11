@@ -1,0 +1,32 @@
+default_platform(:android)
+
+platform :android do
+  desc "Deploy to Play Store"
+  lane :deploy do
+    gradle(task: 'clean')
+    gradle(task: 'bundle', build_type: 'release')
+    upload_to_play_store(
+      track: 'production',
+      release_status: 'completed'
+    )
+  end
+  
+  desc "Build for testing"
+  lane :test do
+    gradle(task: 'test')
+    gradle(task: 'connectedAndroidTest')
+  end
+  
+  desc "Increment version code"
+  lane :increment_version do
+    version_code = google_play_track_version_codes(
+      track: 'production'
+    ).max
+    new_version_code = version_code + 1
+    
+    increment_version_code(
+      gradle_file_path: "app/build.gradle.kts",
+      version_code: new_version_code
+    )
+  end
+end
