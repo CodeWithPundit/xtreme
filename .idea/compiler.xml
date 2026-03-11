@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="17">
+      <module name="XtremeIPTV.app" target="17" />
+      <module name="XtremeIPTV.core.common" target="17" />
+      <module name="XtremeIPTV.core.data" target="17" />
+      <module name="XtremeIPTV.core.database" target="17" />
+      <module name="XtremeIPTV.core.designsystem" target="17" />
+      <module name="XtremeIPTV.core.domain" target="17" />
+      <module name="XtremeIPTV.core.model" target="17" />
+      <module name="XtremeIPTV.core.network" target="17" />
+      <module name="XtremeIPTV.core.preferences" target="17" />
+      <module name="XtremeIPTV.feature.auth" target="17" />
+      <module name="XtremeIPTV.feature.cast" target="17" />
+      <module name="XtremeIPTV.feature.download" target="17" />
+      <module name="XtremeIPTV.feature.epg" target="17" />
+      <module name="XtremeIPTV.feature.home" target="17" />
+      <module name="XtremeIPTV.feature.live" target="17" />
+      <module name="XtremeIPTV.feature.movies" target="17" />
+      <module name="XtremeIPTV.feature.player" target="17" />
+      <module name="XtremeIPTV.feature.profile" target="17" />
+      <module name="XtremeIPTV.feature.recording" target="17" />
+      <module name="XtremeIPTV.feature.series" target="17" />
+      <module name="XtremeIPTV.feature.settings" target="17" />
+      <module name="XtremeIPTV.service.download" target="17" />
+      <module name="XtremeIPTV.service.recording" target="17" />
+      <module name="XtremeIPTV.service.sync" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
