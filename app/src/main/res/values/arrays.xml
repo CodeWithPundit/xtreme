@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Video quality options -->
+    <string-array name="video_qualities">
+        <item>Auto</item>
+        <item>240p</item>
+        <item>360p</item>
+        <item>480p</item>
+        <item>720p</item>
+        <item>1080p</item>
+        <item>4K</item>
+    </string-array>
+    
+    <!-- Audio quality options -->
+    <string-array name="audio_qualities">
+        <item>Auto</item>
+        <item>64 kbps</item>
+        <item>128 kbps</item>
+        <item>192 kbps</item>
+        <item>320 kbps</item>
+    </string-array>
+    
+    <!-- Buffer size options -->
+    <string-array name="buffer_sizes">
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>30 MB</item>
+    </string-array>
+    
+    <!-- EPG days options -->
+    <string-array name="epg_days">
+        <item>1 day</item>
+        <item>3 days</item>
+        <item>7 days</item>
+        <item>14 days</item>
+    </string-array>
+    
+    <!-- Avatar colors -->
+    <array name="avatar_colors">
+        <item>#FF6B6B</item>
+        <item>#4ECDC4</item>
+        <item>#45B7D1</item>
+        <item>#96CEB4</item>
+        <item>#FFEEAD</item>
+        <item>#D4A5A5</item>
+        <item>#9B59B6</item>
+        <item>#3498DB</item>
+    </array>
+</resources>
