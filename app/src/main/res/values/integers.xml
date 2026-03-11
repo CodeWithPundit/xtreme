@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Player settings -->
+    <integer name="default_buffer_size">5</integer>
+    <integer name="max_buffer_size">30</integer>
+    <integer name="epg_retention_days">7</integer>
+    <integer name="playlist_refresh_hours">6</integer>
+    
+    <!-- UI settings -->
+    <integer name="max_recent_searches">10</integer>
+    <integer name="max_downloads">5</integer>
+    <integer name="max_recordings">3</integer>
+</resources>
