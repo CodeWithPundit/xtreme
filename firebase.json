@@ -1,0 +1,15 @@
+{
+  "react-native": {
+    "crashlytics_debug_enabled": true,
+    "crashlytics_auto_collection_enabled": true,
+    "crashlytics_ndk_enabled": true
+  },
+  "analytics": {
+    "min_time_on_screen": 1000,
+    "default_allow_analytics_storage": true,
+    "default_allow_ad_storage": true
+  },
+  "performance": {
+    "enabled": true
+  }
+}
