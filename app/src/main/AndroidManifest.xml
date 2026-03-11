@@ -98,7 +98,22 @@
         <meta-data
             android:name="android.app.banner"
             android:resource="@drawable/tv_banner" />
-        
+       <!-- Deep links for player -->
+<intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="xtremeiptv" android:host="play" />
+    <data android:scheme="https" android:host="www.xtremeiptv.com" android:pathPattern="/play/.*" />
+</intent-filter>
+
+<!-- Deep links for profile -->
+<intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="xtremeiptv" android:host="profile" />
+</intent-filter> 
     </application>
 
 </manifest>
