@@ -1,0 +1,9 @@
+
+## Key Components
+1. **Presentation Layer**: Jetpack Compose + MVVM
+2. **Domain Layer**: Use cases + Repository interfaces
+3. **Data Layer**: Repository implementations + Data sources
+4. **Core Layer**: Common utilities, network, database
+
+## Data Flow
+UI → ViewModel → UseCase → Repository → DataSource → Remote/Local
