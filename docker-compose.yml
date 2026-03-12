@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    volumes:
+      - ./apk-output:/apk
+    environment:
+      - KEYSTORE_PASSWORD=${KEYSTORE_PASSWORD}
+      - KEY_ALIAS=${KEY_ALIAS}
+      - KEY_PASSWORD=${KEY_PASSWORD}
+      - ADMOB_APP_ID=${ADMOB_APP_ID}
+      - CAST_APP_ID=${CAST_APP_ID}
