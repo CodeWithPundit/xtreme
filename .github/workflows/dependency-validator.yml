@@ -1,0 +1,52 @@
+name: 📦 Dependency Validator
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Weekly
+  workflow_dispatch:
+
+jobs:
+  validate-dependencies:
+    name: Check Dependency Issues
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      
+      - name: Check for Dependency Updates
+        run: |
+          ./gradlew dependencyUpdates > updates.txt 2>&1 || true
+          
+      - name: Check for Conflicts
+        run: |
+          ./gradlew app:dependencies --configuration releaseCompileClasspath > full_deps.txt
+          ./gradlew checkForConflicts > conflicts.txt 2>&1 || true
+      
+      - name: Generate Dependency Report
+        run: |
+          echo "# 📦 Dependency Health Report" > dep_report.md
+          echo "" >> dep_report.md
+          
+          # Check for outdated dependencies
+          echo "## 🔄 Outdated Dependencies" >> dep_report.md
+          echo '```' >> dep_report.md
+          grep -E "->|available" updates.txt | grep -v "Gradle" >> dep_report.md || echo "None found" >> dep_report.md
+          echo '```' >> dep_report.md
+          
+          # Check for conflicts
+          echo "## ⚠️ Potential Conflicts" >> dep_report.md
+          echo '```' >> dep_report.md
+          grep -E "Conflict|Multiple|->" full_deps.txt | grep -B 2 "->" >> dep_report.md || echo "No conflicts detected" >> dep_report.md
+          echo '```' >> dep_report.md
+      
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-report
+          path: dep_report.md
