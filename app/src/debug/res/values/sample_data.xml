@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sample_m3u_url" translatable="false">https://example.com/sample.m3u</string>
+    <string name="sample_xtream_url" translatable="false">http://example.com:8080</string>
+    <string name="sample_username" translatable="false">demo</string>
+    <string name="sample_password" translatable="false">demo123</string>
+    <string name="sample_mac_address" translatable="false">00:1A:2B:3C:4D:5E</string>
+    <string name="sample_portal_url" translatable="false">http://portal.example.com</string>
+</resources>
