@@ -1,0 +1,52 @@
+name: ⚡ Quick Error Check
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    paths:
+      - '**.kt'
+      - '**.kts'
+      - '**.xml'
+
+jobs:
+  quick-check:
+    name: Fast Error Detection
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      
+      - name: Quick Syntax Check
+        id: syntax
+        continue-on-error: true
+        run: |
+          ./gradlew compileDebugKotlin --stacktrace > syntax_errors.txt 2>&1 || true
+      
+      - name: Parse and Display Errors
+        if: steps.syntax.outcome == 'failure'
+        run: |
+          echo "## ⚡ Quick Error Summary" > quick_report.md
+          echo '```' >> quick_report.md
+          grep -A 5 -B 2 "error:" syntax_errors.txt | head -30 >> quick_report.md
+          echo '```' >> quick_report.md
+          
+          # Show first 5 errors with file locations
+          echo "" >> quick_report.md
+          echo "### 📍 Error Locations" >> quick_report.md
+          grep -E "\.kt:\[?[0-9]+\]?.*error:" syntax_errors.txt | head -5 | sed 's/^/- /' >> quick_report.md
+          
+          cat quick_report.md
+      
+      - name: Upload Quick Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quick-error-report
+          path: quick_report.md
